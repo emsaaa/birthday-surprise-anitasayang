@@ -61,19 +61,6 @@
       white-space: pre-line;
     }
 
-    .hint {
-      font-size: 14px;
-      color: #888;
-      margin-top: 12px;
-      animation: pulse 1.8s infinite;
-    }
-
-    @keyframes pulse {
-      0% { opacity: .5; }
-      50% { opacity: 1; }
-      100% { opacity: .5; }
-    }
-
     .photo {
       width: 100%;
       max-height: 230px;
@@ -81,11 +68,10 @@
       border-radius: 18px;
       margin: 12px 0;
       box-shadow: 0 12px 30px rgba(0,0,0,.18);
-      animation: zoomIn .9s ease;
     }
 
-    button {
-      margin-top: 22px;
+    .btn {
+      margin-top: 14px;
       padding: 13px 30px;
       border: none;
       border-radius: 30px;
@@ -94,16 +80,23 @@
       font-size: 16px;
       cursor: pointer;
       transition: transform .2s ease, box-shadow .2s ease;
+      width: 100%;
     }
 
-    button:hover {
+    .btn.secondary {
+      background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+    }
+
+    .btn.wa {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+    }
+
+    .btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 22px rgba(0,0,0,.25);
     }
 
-    .hidden {
-      display: none;
-    }
+    .hidden { display: none; }
 
     .hearts span {
       position: fixed;
@@ -117,11 +110,6 @@
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes zoomIn {
-      from { transform: scale(.92); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
 
     @keyframes floatUp {
@@ -141,47 +129,52 @@
   <!-- HEARTS -->
   <div class="hearts">
     <span style="left:10%; animation-duration:9s">❤️</span>
-    <span style="left:25%; animation-duration:11s">💖</span>
-    <span style="left:40%; animation-duration:10s">💕</span>
-    <span style="left:60%; animation-duration:12s">💗</span>
-    <span style="left:80%; animation-duration:9.5s">❤️</span>
+    <span style="left:30%; animation-duration:11s">💖</span>
+    <span style="left:50%; animation-duration:10s">💕</span>
+    <span style="left:70%; animation-duration:12s">💗</span>
+    <span style="left:90%; animation-duration:9.5s">❤️</span>
   </div>
 
   <!-- PAGE 1 -->
   <div class="card" id="page1">
-    <h1>🎂 Happy 24th Birthday 🎂</h1>
+    <h1>🎂💕 Happy 24th Birthday My Honey💕🎂</h1>
     <p>
-Hari ini bukan hari biasa.
-Ada seseorang yang lahir,
-dan tanpa sadar bikin dunia Aa
-jadi lebih hangat dari sebelumnya 🤍
+Sebelum lanjut,
+play dulu musiknya ya…
+biar feel nya dapet sayang hehe 🤍
     </p>
 
-    <div class="hint">▶ Play this music Sayang❤️🎧</div>
-
-    <button onclick="startSurprise()">Buka Surprise 🎁</button>
+    <button class="btn secondary" onclick="playMusic()">▶ Play Music</button>
+    <button class="btn" onclick="startSurprise()">Buka Surprise 🎁</button>
   </div>
 
   <!-- PAGE 2 -->
   <div class="card hidden" id="page2">
-    <img src="gambar3.jpeg" class="photo" alt="Kenangan">
-    <img src="gambar1.jpeg" class="photo" alt="Kenangan">
+    <img src="gambar3.jpeg" class="photo">
+    <img src="gambar1.jpeg" class="photo">
 
-    <h2>Untuk Anita 🤍</h2>
+    <h2>Untuk Anitt tersayang 🤍</h2>
     <p>
+Di tengah hiruk pikuk kehidupan belakangan ini,  kamu akan selalu merasakan
+dicintai dengan tulus oleh aku kak, aku akan menerima segala kelebihan dan
+kekuranganku begitupun sebaliknya. masa lalu ada milikmu dan miliku,
+TAPI MASA DEPAN ADALAH MILIK KITA BERSAMA SAYANG.
+Jangan pernah khawatir akan hidupmu sayang, mari bergandengan tangan
+selalu bersama melewati semuanya. aku akan selalu ada disini bersama kamu.
+
 Di umur kamu yang ke-24 ini,
-semoga langkah kamu selalu dimudahkan,
+semoga langkah kamu selalu dimudahkan Allah sayang,
 hatinya selalu tenang,
 dan Allah jaga kamu
 dalam setiap proses hidupmu.
 
 Terima kasih sudah hadir,
 sudah bertahan,
-dan sudah jadi kamu
+dan sudah jadi kaka anitt tersayang
 yang Aa banggakan ❤️
     </p>
 
-    <button onclick="nextPage()">Lanjut 💌</button>
+    <button class="btn" onclick="nextPage()">Lanjut 💌</button>
   </div>
 
   <!-- PAGE 3 -->
@@ -193,30 +186,30 @@ Aa cuma mau nitip sedikit pesan…
 Jaga diri kamu,
 jaga hati,
 jaga kesehatan,
-jaga nama baik dan kehormatanmu.
+dan jaga kehormatanmu.
 
-Jangan pernah terbawa
-pergaulan yang salah ya sayang.
+I love You More Than Anything I Have Sweetheart 🤍
 Aa percaya sepenuhnya sama kamu 🤍
     </p>
 
     <p><strong>
-Semoga ke depan,
-kita bisa terus beriringan,
-melangkah bareng,
-dan saling menguatkan ❤️
+Aku sayang kamu,
+hari ini, besok,
+dan seterusnya ❤️
     </strong></p>
 
-    <p><strong>
-Aku sayang kamu, Anittttt ❤️
-    </strong></p>
+    <button class="btn wa" onclick="balasWA()">💬 Klik ini , AA tunggu di WhatsApp sayang hihi </button>
   </div>
 
   <script>
-    function startSurprise() {
-      const music = document.getElementById("bgMusic");
-      music.play();
+    const music = document.getElementById("bgMusic");
 
+    function playMusic() {
+      music.play();
+    }
+
+    function startSurprise() {
+      music.play();
       document.getElementById("page1").classList.add("hidden");
       document.getElementById("page2").classList.remove("hidden");
     }
@@ -225,8 +218,14 @@ Aku sayang kamu, Anittttt ❤️
       document.getElementById("page2").classList.add("hidden");
       document.getElementById("page3").classList.remove("hidden");
     }
+
+    function balasWA() {
+      window.open(
+        "https://wa.me/62881023505122?text=Makasih%20ya%20Aa%20🤍%20Aku%20terharu",
+        "_blank"
+      );
+    }
   </script>
 
 </body>
 </html>
-
