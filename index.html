@@ -6,10 +6,7 @@
   <title>Happy 24th Birthday ❤️</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
+    * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
     body {
       margin: 0;
@@ -42,17 +39,8 @@
       margin-bottom: 30px;
     }
 
-    h1 {
-      margin: 0 0 12px;
-      font-size: 28px;
-      color: #ff5e78;
-    }
-
-    h2 {
-      margin: 10px 0 14px;
-      font-size: 22px;
-      color: #444;
-    }
+    h1 { margin: 0 0 12px; font-size: 28px; color: #ff5e78; }
+    h2 { margin: 10px 0 14px; font-size: 22px; color: #444; }
 
     p {
       font-size: 16px;
@@ -79,22 +67,11 @@
       color: white;
       font-size: 16px;
       cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease;
       width: 100%;
     }
 
-    .btn.secondary {
-      background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
-    }
-
-    .btn.wa {
-      background: linear-gradient(135deg, #25d366, #128c7e);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(0,0,0,.25);
-    }
+    .btn.secondary { background: linear-gradient(135deg, #8ec5fc, #e0c3fc); }
+    .btn.wa { background: linear-gradient(135deg, #25d366, #128c7e); }
 
     .hidden { display: none; }
 
@@ -118,11 +95,10 @@
     }
   </style>
 </head>
-
 <body>
 
-  <!-- AUDIO -->
-  <audio id="bgMusic" loop>
+  <!-- AUDIO FIXED -->
+  <audio id="bgMusic" preload="auto">
     <source src="lagu.mp3" type="audio/mpeg">
   </audio>
 
@@ -137,11 +113,10 @@
 
   <!-- PAGE 1 -->
   <div class="card" id="page1">
-    <h1>🎂💕 Happy 24th Birthday My Honey💕🎂</h1>
+    <h1>🎂 Happy 24th Birthday My Honey 🎂</h1>
     <p>
-Sebelum lanjut,
-play dulu musiknya ya…
-biar feel nya dapet sayang hehe 🤍
+Play dulu musiknya ya sayang,
+biar rasanya makin dapet 🤍
     </p>
 
     <button class="btn secondary" onclick="playMusic()">▶ Play Music</button>
@@ -156,18 +131,14 @@ biar feel nya dapet sayang hehe 🤍
     <h2>Untuk Anitt tersayang 🤍</h2>
     <p>
 Di tengah riuh dan lelahnya hidup akhir-akhir ini,
-aku ingin kamu tahu satu hal sederhana:
-kamu dicintai, dengan cara yang tulus dan tenang.
+kamu akan selalu merasakan dicintai, dengan cara yang tulus oleh ku.
 
 Aku menerima kamu apa adanya,
-dengan segala lebih dan kurangnya.
-Masa lalu biarlah menjadi cerita,
-karena hari ini aku memilih kamu,
-dan masa depan ingin kujalani bersama kamu.
+dengan segala kelebihan dan kekurangnya.
 
 Jangan pernah merasa sendiri, sayang.
 Mari kita genggam tangan satu sama lain,
-melangkah pelan, jatuh bangun bersama,
+melangkah bersama, jatuh bangun bersama,
 dan saling menguatkan di setiap prosesnya.
 Aku di sini, dan akan selalu berusaha ada untuk kamu.
 
@@ -196,9 +167,8 @@ JAGA HATI KAMU,
 JAGA KESEHATAN KAMU,
 dan JAGA KEHORMATAN KAMU.
 
-I love you, more than words could ever explain 🤍
-dan Aa percaya sepenuhnya sama kamu.
-    </p>
+I love you, more than words could ever explain🤍
+dan Aa percaya sepenuhnya sama kamu.🤍
 
     <p><strong>
 Aku sayang kamu,
@@ -206,18 +176,22 @@ hari ini, besok,
 dan seterusnya ❤️
     </strong></p>
 
-    <button class="btn wa" onclick="balasWA()">💬 Klik disini untuk mengkofirmasi hadiah besar yang akan menyusul </button>
+    <button class="btn wa" onclick="balasWA()">💬 Klik disini untuk mengkonfirmasi hadiah besar yang akan menyusul</button>
   </div>
 
   <script>
     const music = document.getElementById("bgMusic");
 
     function playMusic() {
-      music.play();
+      music.loop = true;
+      music.play().catch(() => {
+        alert("Klik sekali lagi ya sayang 🤍");
+      });
     }
 
     function startSurprise() {
-      music.play();
+      music.loop = true;
+      music.play().catch(() => {});
       document.getElementById("page1").classList.add("hidden");
       document.getElementById("page2").classList.remove("hidden");
     }
